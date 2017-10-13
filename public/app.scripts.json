@@ -1,0 +1,25 @@
+{
+    "chunks": {
+        "vendor": [
+            "jquery",
+            "angular",
+            "angular-bootstrap",
+            "angular-ui-router",
+            "bootstrap",
+            "ncy-angular-breadcrumb",
+            "ng-file-upload",
+            "toastr"
+        ],
+        "vendor.ui": []
+    },
+    "paths": {
+        "jquery": "bower_components/jquery/dist/jquery.min.js",
+        "angular": "bower_components/angular/angular.min.js",
+        "angular-bootstrap": "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
+        "angular-ui-router": "bower_components/angular-ui-router/release/angular-ui-router.min.js",
+        "bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "ncy-angular-breadcrumb": "bower_components/angular-breadcrumb/release/angular-breadcrumb.min.js",
+        "ng-file-upload": "bower_components/ng-file-upload/ng-file-upload.min.js",
+        "toastr": "bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"
+    }
+}

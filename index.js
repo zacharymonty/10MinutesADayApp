@@ -4,12 +4,15 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+app.use(require('./app/config/static.files'))
+
 app.use(bodyParser.json());
 
-app.use(require('./app/routes/routes'));
-app.use('/public', express.static(path.join(__dirname, 'public'), {
-    fallthrough: false
-}));
+// app.use('/public', express.static(path.join(__dirname, 'public'), {
+//     fallthrough: false
+// }));
+app.use(require('./app/routes'));
+
 
 // set our port
 const port = process.env.PORT || 8080
@@ -18,7 +21,7 @@ const port = process.env.PORT || 8080
 mongoose.Promise = global.Promise
 
 // connect to mongoDB database
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017')
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017', { useMongoClient: true })
 
 // If the Node process ends, close the Mongoose connection
 // see: http://theholmesoffice.com/mongoose-connection-best-practice/
