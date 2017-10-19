@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <form>
+
+        <div class="letter">
+          <h3 class="journalDateHeader">{{ updateJournalCtrl.journal.date | date : format : mediumDate}}</h3>
+          <textarea class="text" ng-model="updateJournalCtrl.journal.entry" spellcheck="false"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="text-center">
+      <button type="submit" ng-click='updateJournalCtrl.update()'  class="action-button shadow animate blue">Update!</button>
+      </div>
+      <!-- <a href="#" class="action-button shadow animate blue">Hello</a> -->
+      <!-- <a href="#" class="action-button shadow animate red">How</a>
+      <a href="#" class="action-button shadow animate green">Are</a>
+      <a href="#" class="action-button shadow animate yellow">You?</a> -->
+    </div>
+  </div>
+  <div class="col-sm-4">
+    
+  </div>
+</div>

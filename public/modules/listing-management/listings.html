@@ -8,9 +8,9 @@
     <div class='row'>
 
 
-        <!-- BEGIN panel-body -->
+        <!-- BEGIN panel-body
         <div class="panel-body">
-            <p class="desc">Greenscapes</p>
+            <p class="desc">Listings</p>
             <div class="table-responsive">
                 <table class="table m-b-0 table-bordered bordered table-striped table-condensed">
                     <thead>
@@ -23,9 +23,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="listing in greenscapeCtrl.greenscapes | filter:{isArchived:false}">
-                            <td>{{greenscape.name}}</td>
-                            <td ng-class="greenscapeCtrl.selectedItem==greenscape  ? 'td-expand': 'td-compress'" ng-click="greenscapeCtrl.selectedItem = greenscapeCtrl.selectedItem ==greenscape? a:greenscape">{{greenscape.description}}</td>
+                        <tr ng-repeat="listing in listCtrl.listings">
+                            <td>{{listing.address}}</td>
+                            <td ng-class="listCtrl.selectedItem==greenscape  ? 'td-expand': 'td-compress'" ng-click="listCtrl.selectedItem = listCtrl.selectedItem ==greenscape? a:greenscape">{{greenscape.description}}</td>
                             <td>
                                 <ul>
                                     <li ng-repeat="strategy in greenscape.strategies">{{strategy.name}}</li>
@@ -35,17 +35,70 @@
                                 <img class='image-size' src='{{greenscape.imageUrl}}' />
                             </td>
                             <td class='btn-col crud-table-buttons'>
-                                <view-edit-archive-buttons item='greenscape' service='greenscapeCtrl.service' on-list-archive='greenscapeCtrl.updateArray(arrayItem)'></view-edit-archive-buttons>
+                                <view-edit-archive-buttons item='greenscape' service='listCtrl.service' on-list-archive='listCtrl.updateArray(arrayItem)'></view-edit-archive-buttons>
                             </td>
                         </tr>
 
                     </tbody>
                 </table>
 
-                <!-- END panel-body -->
             </div>
-        </div>
+        </div> -->
 
     </div>
 </div>
+<!--  hide-until-loading  -->
+<div class="container">
 
+    <div class="row">
+        <div class="col-md-12 col-sm-12 animated fadeInUp animatedVisi" data-animtype="flipInY" data-animrepeat="0" data-speed="1s"
+            data-delay="0.5s">
+            <h2 class="h2-section-title">Partners</h2>
+
+            <div class="i-section-title">
+                <i class="icon-users-outline">
+
+                </i>
+            </div>
+
+            <div class="space-sep20"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row animated fadeInUp animatedVisi" data-animtype="fadeInUp" data-animrepeat="0" data-animdelay="0.4s">
+            <div class="col-md-3 col-sm-3" style="display: block; float: left;" ng-repeat="listing in listCtrl.listings">
+                <div class="team-member">
+                    <div class="team-member-image img-overlay">
+                        <img src="{{ listing.imageUrl }}" class="listing-photo" />
+
+                        <!-- <div class="item-img-overlay">
+                            <div class="social-icons item_img_overlay_content">
+
+                                <a href="#" title="mail" target="_blank" class="social-media-icon mail-icon">Send Email</a>
+                                <a href="#" title="instagram" target="_blank" class="social-media-icon instagram-icon">View Instagram</a>
+                                <a href="#" title="sharethis" target="_blank" class="social-media-icon sharethis-icon">Share Organization</a>
+
+
+                            </div>
+
+                        </div> -->
+                    </div>
+                    <div class="team-member-content" style="height: 250px;">
+                        <h3 class="team-member-name h3-body-title">
+                            {{ listing.address }}
+                        </h3>
+
+                        <div class="team-member-position">
+                            {{ partner.name }}
+                        </div>
+                        <div class="team-member-short-bio">
+                            {{ partner.description }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -21,7 +21,7 @@ const port = process.env.PORT || 8080
 mongoose.Promise = global.Promise
 
 // connect to mongoDB database
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017', { useMongoClient: true })
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/zachcrud-app', { useMongoClient: true })
 
 // If the Node process ends, close the Mongoose connection
 // see: http://theholmesoffice.com/mongoose-connection-best-practice/

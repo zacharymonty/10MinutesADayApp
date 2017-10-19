@@ -14,14 +14,9 @@
                     'content@app': {
                         templateUrl: '/public/modules/listing-management/listings.html',
                         controller: 'listingsController as listCtrl',
-                        resolve: {
-                            blah: function() {
-                                debugger;
-                            },
-                            random: function() {
-                                debugger;
-                            }
-                        }
+                        // resolve: {
+                        //     listings: getAllListings
+                        // }
                     }
                 }
             })
@@ -46,7 +41,7 @@
 
 
     }
-
+// console.log("module loading")
     function getAllListings(listingService) {
         debugger;
         return listingService.getAll()
