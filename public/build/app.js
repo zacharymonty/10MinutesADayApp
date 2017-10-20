@@ -14,7 +14,7 @@ $(function () {
 
     //base / common
     "public.layout", //inside modules section
-    "public.listing-management", "public.journal",
+    "public.journal",
     //services
     "public.services",
 
@@ -52,10 +52,8 @@ $(function () {
                     templateUrl: '/public/modules/home/home.html',
                     controller: 'homeController as homeCtrl'
                 }
-                // ncyBreadcrumb: {
-                //     label: 'HOME'
-                // }
-            } });
+            }
+        });
     }
 })();
 'use strict';
@@ -69,7 +67,7 @@ $(function () {
     RouteConfig.$inject = ['$stateProvider']; //has to match what ui-router gives 
 
     function RouteConfig($stateProvider) {
-        $stateProvider.state('app.journal', {
+        $stateProvider.state('app.new-journal', {
             url: '/new-journal',
             views: {
                 'content@app': {
@@ -168,62 +166,23 @@ $(function () {
 
 /* global angular */
 (function () {
-    'use strict';
-
-    angular.module('public.listing-management', ['ui.router']).config(RouteConfig); //initialization step --needs the .config  - function passed to define .config
-
-    RouteConfig.$inject = ['$stateProvider']; //has to match what ui-router gives 
-
-    function RouteConfig($stateProvider) {
-        $stateProvider.state('app.listings', {
-            url: '/listings',
-            views: {
-                'content@app': {
-                    templateUrl: '/public/modules/listing-management/listings.html',
-                    controller: 'listingsController as listCtrl'
-                    // resolve: {
-                    //     listings: getAllListings
-                    // }
-                }
-            }
-        }).state('app.new-listing', { //indicates a child state - related to the above 
-            url: '/new-listing',
-            views: {
-                'content@app': {
-                    templateUrl: '/public/modules/listing-management/new-listing.html',
-                    controller: 'newListingController as newListCtrl'
-                    // resolve: {
-                    //     hackers: getAllHackers
-                    // }
-                }
-            },
-            ncyBreadcrumb: {
-                label: 'LIST', // angular-breadcrumb's configuration
-                parent: 'app.home'
-            }
-        });
-    }
-    // console.log("module loading")
-    function getAllListings(listingService) {
-        debugger;
-        return listingService.getAll().then(function (data) {
-            return data.items;
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
-})();
-'use strict';
-
-/* global angular */
-(function () {
 	'use strict';
 
 	// ngFileUpload is required to run "Upload" in service module
 
 	angular.module('public.services', []);
 })();
-"use strict";
+'use strict';
+
+(function () {
+    'use strict';
+
+    angular.module('public.home').controller('homeController', HomeController);
+
+    function HomeController() {
+        'use strict';
+    }
+})();
 'use strict';
 
 (function () {
@@ -295,6 +254,8 @@ $(function () {
         // var date = new Date();
         vm.date = new Date();
 
+        vm.startTyping = vm.formData;
+
         vm.submit = function () {
             journalService.insert(vm.formData).then(_onSubmitSuccess).catch(_onError);
         };
@@ -306,6 +267,42 @@ $(function () {
         function _onError(error) {
             console.log(error);
         }
+
+        function startCountdown() {
+            // set the date we're counting down to
+            var target_date = new Date();
+            target_date.setMinutes(target_date.getMinutes() + 1);
+
+            // variables for time units
+            var minutes, seconds;
+
+            // get tag element
+            var countdown = document.getElementById("countdown");
+
+            // update the tag with id "countdown" every 1 second
+            setInterval(function () {
+
+                // find the amount of "seconds" between now and target
+                var current_date = new Date().getTime();
+                var seconds_left = (target_date - current_date) / 1000;
+
+                // do some time calculations
+                minutes = parseInt(seconds_left / 60);
+                seconds = parseInt(seconds_left % 60);
+
+                // format countdown string + set tag value
+                countdown.innerHTML = minutes + " minutes " + seconds + " seconds";
+            }, 1000);
+
+            if (minutes == 0 && seconds == 0) {
+                alert("times up!");
+            }
+        }
+        // vm.isDirty = vm.journalEntry.$dirty;
+        // if (vm.isDirty){
+        //     startCountdown()
+        // }
+
     }
 })();
 'use strict';
@@ -336,34 +333,6 @@ $(function () {
         }
     }
 })();
-'use strict';
-
-(function () {
-    'use strict';
-
-    angular.module('public.listing-management').controller('listingsController', ListingsController);
-
-    ListingsController.$inject = ['listingService'];
-
-    function ListingsController(listingService) {
-        'use strict';
-
-        var vm = this;
-        vm.tagline = 'Current Listings';
-        // vm.listing = random;
-        // vm.service = greenscapeService;
-        listingService.getAll().then(function (data) {
-            vm.listings = data.items;
-            console.log(vm.listings);
-        }).catch(function (error) {
-            console.log(error);
-        });
-
-        // vm.listings = listings
-
-    }
-})();
-"use strict";
 'use strict';
 
 (function () {
@@ -400,53 +369,6 @@ $(function () {
 
         function remove(id) {
             return $http.delete('/api/journals/' + id).then(xhrSuccess).catch(onError);
-        }
-
-        function xhrSuccess(response) {
-            return response.data;
-        }
-
-        function onError(error) {
-            return $q.reject(error.data);
-        }
-    }
-})();
-'use strict';
-
-(function () {
-    'use strict';
-
-    angular.module('public.services').factory('listingService', ListingServiceFactory);
-
-    ListingServiceFactory.$inject = ['$http', '$q'];
-
-    function ListingServiceFactory($http, $q) {
-        return {
-            getAll: getAll,
-            getById: getById,
-            insert: insert,
-            update: update,
-            remove: remove
-        };
-
-        function getAll() {
-            return $http.get('/api/listings').then(xhrSuccess).catch(onError);
-        }
-
-        function getById(id) {
-            return $http.get('/api/listings/' + id).then(xhrSuccess).catch(onError);
-        }
-
-        function insert(listingData) {
-            return $http.post('/api/listings', listingData).then(xhrSuccess).catch(onError);
-        }
-
-        function update(listingData) {
-            return $http.put('/api/listings/' + listingData._id, listingData).then(xhrSuccess).catch(onError);
-        }
-
-        function remove(id) {
-            return $http.delete('/api/listings/' + id).then(xhrSuccess).catch(onError);
         }
 
         function xhrSuccess(response) {

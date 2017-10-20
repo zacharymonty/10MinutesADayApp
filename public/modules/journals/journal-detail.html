@@ -1,11 +1,29 @@
 <div class="col-sm-12">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-3 clearfix">
+    <div class="col-sm-12">
 
       <div class="letter">
-          <h3 class="journalDateHeader">{{ journalDetailCtrl.journal.date | date : format : mediumDate }}</h3>
-      </br>
+        <h3 class="journalDateHeader">{{ journalDetailCtrl.journal.date | date : format : mediumDate }}</h3>
+        </br>
         <p class="journalDetailContent">{{journalDetailCtrl.journal.entry}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row updateButtons">
+    <div class="col-sm-6">
+      <div class="text-center">
+        <div class="row">
+          <button ui-sref="app.update-journal({id:journalDetailCtrl.journal._id})" class="action-button update animate light-purple">edit</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="text-center">
+        <div class="row">
+          <button ui-sref="app.journal-list" class="action-button cancel animate red">cancel</button>
+        </div>
+
       </div>
     </div>
   </div>

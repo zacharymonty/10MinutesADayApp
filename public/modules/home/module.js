@@ -15,9 +15,6 @@
                         controller: 'homeController as homeCtrl'
                     }
                 }
-                // ncyBreadcrumb: {
-                //     label: 'HOME'
-                // }
             })
     }
 })();

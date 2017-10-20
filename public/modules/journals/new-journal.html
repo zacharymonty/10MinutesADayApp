@@ -1,27 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8">
-      <form ng-submit="partnersCtrl.submit()">
+    <div class="col-sm-12">
+      
+      <form name="journal">
+        <div ng-show="journalCtrl.formData.entry.$dirty" id="countdown"></div>
 
         <div class="letter">
           <h3 class="journalDateHeader">{{ journalCtrl.date | date : format : mediumDate}}</h3>
-          <textarea class="text" ng-model="journalCtrl.formData.entry" spellcheck="false"></textarea>
+          <textarea class="text" name="journalEntry" ng-model="journalCtrl.formData.entry" spellcheck="false"></textarea>
         </div>
       </form>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
       <div class="text-center">
-      <button type="submit" ng-click='journalCtrl.submit()'  class="action-button shadow animate blue">I'm Finished!</button>
+      <button type="submit" ui-sref="app.journal-list" ng-click='journalCtrl.submit()'  class="action-button shadow animate newJournalButton light-purple">I'm Finished!</button>
       </div>
-      <!-- <a href="#" class="action-button shadow animate blue">Hello</a> -->
-      <!-- <a href="#" class="action-button shadow animate red">How</a>
-      <a href="#" class="action-button shadow animate green">Are</a>
-      <a href="#" class="action-button shadow animate yellow">You?</a> -->
     </div>
   </div>
-  <div class="col-sm-4">
-    
-  </div>
+  
 </div>

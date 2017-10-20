@@ -14,9 +14,10 @@
       </div>
       <div class="edit-delete-buttons">
         <div class="row">
-          <button ng-click="journalListCtrl.remove(journal._id)" class="action-button-small delete-button shadow animate red">Delete</button>
-
-          <button ui-sref="app.update-journal({id:journal._id})" class="action-button-small edit-button shadow animate light-purple">Update</button>
+          <button ui-sref="app.update-journal({id:journal._id})" class="action-button-small-list edit-button shadow animate light-purple">update</button>
+        </div>
+        <div class="row">
+          <button ng-click="journalListCtrl.remove(journal._id)" class="action-button-small-list delete-button shadow animate red">delete</button>
         </div>
       </div>
     </div>

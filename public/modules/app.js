@@ -9,7 +9,6 @@
 
             //base / common
             "public.layout", //inside modules section
-            "public.listing-management",
             "public.journal",
             //services
             "public.services", 

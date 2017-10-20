@@ -1,12 +1,10 @@
 const router = require('express').Router()
 const hackersRoutes = require('./hackers.routes')
-const listingsRoutes = require('./listings.routes')
 const journalsRoutes = require('./journals.routes')
 const sitesRoutes = require('./sites.routes')
 
 // register routes ///////////////////////////
 router.use('/api/hackers', hackersRoutes)
-router.use('/api/listings', listingsRoutes)
 router.use('/api/journals', journalsRoutes)
 
 // Handle API 404

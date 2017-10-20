@@ -8,7 +8,7 @@
 
     function RouteConfig($stateProvider) {
         $stateProvider
-            .state('app.journal', {
+            .state('app.new-journal', {
                 url: '/new-journal',
                 views: {
                     'content@app': {

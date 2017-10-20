@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #FFDAA9;
+    background: #FFC986;
 }
 
 .paper {
@@ -64,11 +64,11 @@ body {
 }
 
 .navbar {
-    background: #3FA6A9;
+    background: #7078B2;
 }
 
 .navbar-brand {
-    color: #FFDAA9;
+    color: #FFC986;
 }
 
 textarea {
@@ -221,7 +221,7 @@ textarea::placeholder {
 .journalDetailContent {
     font-family: 'Pacifico', cursive;
     font-size: 16pt;
-    max-width: 90%;
+    max-width: 100%;
     overflow: hidden;
 }
 
@@ -246,19 +246,61 @@ textarea::placeholder {
     border-radius: 10px;
     font-family: 'Pacifico', cursive;
     font-size: 25px;
-    color: #FFF;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.action-button-large {
+    position: relative;
+    padding: 10px 40px;
+    width: 100%;
+    margin: 0px 10px 10px 0px;
+    border-radius: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.action-button-xl {
+    position: relative;
+    /* padding: 10px 40px; */
+    padding-top: 50px;
+    padding-bottom: 60px;
+    max-width: 100%;
+    width: 100%;
+    margin: 0px 10px 10px 0px;
+    border-radius: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 55px;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
 .action-button-small {
     position: relative;
     padding: 10px 10px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
     border-radius: 10px;
     font-family: 'Pacifico', cursive;
-    font-size: 18px;
-    color: #FFF;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
     text-decoration: none;
+    display: inline-block;
+}
+.action-button-small-list {
+    position: relative;
+    width: 185px;
+    padding: 10px 10px;
+    margin-top: 10px;
+    margin-right: 20px;
+    border-radius: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 23px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: inline-block;
 }
 
 .blue {
@@ -286,9 +328,9 @@ textarea::placeholder {
 }
 
 .light-purple {
-    background-color: #5F72B2;
-    border-bottom: 5px solid rgb(63, 79, 133);
-    text-shadow: 0px -2px rgb(63, 79, 133);
+    background-color: #7078B2;
+    border-bottom: 5px solid rgb(71, 77, 116);
+    text-shadow: 0px -2px rgb(71, 77, 116);
 }
 
 .action-button:active {
@@ -303,8 +345,14 @@ textarea::placeholder {
 }
 
 .edit-button {
-    float: right;
-    left: -25%
+    float: left;
+    /* left: -25% */
+}
+
+.navbar-head {
+    height: 50px;
+    padding: 15px 15px 15px 15px;
+    float: left;
 }
 
 a {
@@ -313,7 +361,95 @@ a {
 
 .navbar-brand {
     font-family: 'Pacifico', cursive;
+    padding-top: 15px;
+    padding-left: 15px;
+    height: 80px;
+    font-size: 35px;
 }
+
 .journalCover {
     margin-left: 10px;
+}
+
+.dropdown-menu {
+    background: #FFC986;
+}
+
+.my-journals {
+    padding-top: 25px;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: rgba(238, 238, 238, 0);
+}
+
+.navbar-toggle {
+    background: #FFC986;
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 12px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.homeHeader {
+    color: #7078B2;
+    text-align: center;
+    font-size: 150px;
+    margin-bottom: 50px;
+    font-family: 'Pacifico', cursive;
+}
+
+.navbar-nav {
+    padding-top: 25px;
+}
+
+.icon-bar {
+    background: #5F72B2
+}
+
+.left {
+    float: left!important;
+    margin-right: -15px;
+}
+
+.update {
+    float: right;
+}
+
+.cancel {
+    float: left;
+}
+
+#countdown {
+    text-align: center;
+    color: #3d3d3d;
+    font-family: "Oswald";
+    font-weight: 700;
+    font-size: 5em;
+    margin: 0 25%;
+    border-top: .1em solid;
+    border-bottom: .1em solid;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-bottom: 0px;
+}
+.updateButtons {
+    margin-top: 50px;
+}
+.newJournalButton {
+    margin-top: 50px;
+    width: 80%;
+}
+.container {
+    margin-bottom: 50px;
 }

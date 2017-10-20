@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
       <form>
-
         <div class="letter">
           <h3 class="journalDateHeader">{{ updateJournalCtrl.journal.date | date : format : mediumDate}}</h3>
           <textarea class="text" ng-model="updateJournalCtrl.journal.entry" spellcheck="false"></textarea>
@@ -10,18 +9,20 @@
       </form>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-8">
+  <div class="row updateButtons">
+    <div class="col-sm-6">
       <div class="text-center">
-      <button type="submit" ng-click='updateJournalCtrl.update()'  class="action-button shadow animate blue">Update!</button>
+        <div class="row">
+          <button ng-click='updateJournalCtrl.update()' ui-sref="app.journal-list" class="action-button update animate light-purple">update</button>
+        </div>
       </div>
-      <!-- <a href="#" class="action-button shadow animate blue">Hello</a> -->
-      <!-- <a href="#" class="action-button shadow animate red">How</a>
-      <a href="#" class="action-button shadow animate green">Are</a>
-      <a href="#" class="action-button shadow animate yellow">You?</a> -->
     </div>
-  </div>
-  <div class="col-sm-4">
-    
+    <div class="col-sm-6">
+      <div class="text-center">
+        <div class="row">
+          <button ui-sref="app.journal-list" class="action-button cancel animate red">cancel</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
